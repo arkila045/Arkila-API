@@ -1,0 +1,29 @@
+{
+  "name": "arkila-api",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "dotenv": "^16.3.1",
+    "nodemon": "^3.0.2"
+  },
+  "dependencies": {
+    "@fastify/cors": "^8.5.0",
+    "bcrypt": "^5.1.1",
+    "fastify": "^4.25.1",
+    "fastify-socket.io": "^5.0.0",
+    "googleapis": "^129.0.0",
+    "mongoose": "^8.0.3",
+    "nodemailer": "^6.9.7",
+    "otp-generator": "^4.0.1",
+    "socket.io": "^4.7.2"
+  }
+}
