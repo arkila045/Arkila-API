@@ -41,3 +41,30 @@ export const editUser = async (request, reply) => {
         })
     }
 }
+
+export const getAllUsers = async (request, reply) => {
+    try {
+        const page = request.query.page || 1
+        const limit = 10
+        const skip = (page - 1) * limit
+        const totalDocument = await UserModel.countDocuments()
+
+        const usersDB = await UserModel
+            .find()
+            .sort('-_id')
+            .limit(limit)
+            .skip(skip)
+            .select('-password')
+
+        return reply.status(200).send({
+            page: Number(page),
+            hasNextPage: totalDocument > (skip + 10) ? true : false,
+            data: usersDB
+        })
+    } catch (e) {
+        return reply.status(400).send({
+            success: false,
+            message: e.message
+        })
+    }
+}

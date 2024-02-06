@@ -67,7 +67,7 @@ const UserSchema = new Schema({
     },
     role: {
         type: String,
-        enum: ['user'],
+        enum: ['user', 'admin'],
         default: 'user',
         required: true
     },
@@ -83,8 +83,14 @@ const UserSchema = new Schema({
     itemSlots: {
         type: Number,
         default: 3
+    },
+    qa_role: {
+        type: String
+    },
+    qa_work: {
+        type: String
     }
-})
+}, { timestamps: true })
 
 const UserModel = model('User', UserSchema)
 UserModel.createIndexes()
