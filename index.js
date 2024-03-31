@@ -22,12 +22,12 @@ mongoose.connect(process.env.MONGODB_URI)
     .catch(err => console.log(err))
 
 fastify.register(cors, {
-    origin: ['http://localhost:3000', 'https://arkila-app.vercel.app']
+    origin: ['http://localhost:3000', 'https://arkila-app.vercel.app', 'https://arkilacollects.com']
 })
 
 fastify.register(fastifySocketIO, {
     cors: {
-        origin: ['http://localhost:3000', 'https://arkila-app.vercel.app']
+        origin: ['http://localhost:3000', 'https://arkila-app.vercel.app', 'https://arkilacollects.com']
     }
 })
 
